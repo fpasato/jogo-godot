@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://clrotiejgsqd6"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_4gyqm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7i21o"]
+radius = 16.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1438018479]
+script = ExtResource("1_4gyqm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953964555]
+modulate = Color(0.23921569, 0.18431373, 0.30980393, 1)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1719369433]
+shape = SubResource("CircleShape2D_7i21o")

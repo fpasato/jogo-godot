@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bjndp3xrpjl2d"]
+
+[ext_resource type="Script" uid="uid://huudp3o54sn3" path="res://scripts/lightning_fx.gd" id="1_t6ndq"]
+
+[node name="LightningFx" type="Node2D" unique_id=1877167780]
+script = ExtResource("1_t6ndq")

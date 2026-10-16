@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bqqf30bbv4ats"]
+
+[ext_resource type="Script" uid="uid://v5j4h7i01123" path="res://scripts/soul.gd" id="1_0iudp"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_7i21o"]
+radius = 8.0
+
+[node name="Soul" type="Area2D" unique_id=258606518]
+script = ExtResource("1_0iudp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1430359632]
+shape = SubResource("CircleShape2D_7i21o")

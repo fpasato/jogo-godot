@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bod28fn5ol7b0"]
+
+[ext_resource type="Script" path="res://lightning_storm.gd" id="1"]
+
+[node name="lightning_storm" type="Node2D" unique_id=191629633]
+script = ExtResource("1")

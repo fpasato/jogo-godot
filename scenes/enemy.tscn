@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dd8uwcgqciba8"]
+
+[ext_resource type="Script" uid="uid://dgs610vcu8smb" path="res://scripts/enemy.gd" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://c0oohaixl1i17" path="res://scripts/enemy_aura.gd" id="2_md0e3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7i21o"]
+radius = 16.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1438018479]
+script = ExtResource("1_4gyqm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953964555]
+modulate = Color(0.23921569, 0.18431373, 0.30980393, 1)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1719369433]
+shape = SubResource("CircleShape2D_7i21o")
+
+[node name="EnemyAura" type="Node2D" parent="." unique_id=236378761]
+script = ExtResource("2_md0e3")
