@@ -5,6 +5,10 @@ extends CharacterBody2D
 @export var contact_damage := 5
 @export var attack_cooldown := 0.8
 @export var attack_range := 60.0
+@export var scale_with_player := true
+@export_range(1, 100, 1) var region_level := 1
+@export_range(0.1, 10.0, 0.1) var region_multiplier := 1.0
+@export var max_speed := 220.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -16,14 +20,30 @@ var can_attack := true
 var attacking := false
 var dead := false
 var facing := "down"
+var soul_reward := 1
 
 func _ready():
 	add_to_group("enemies")
 	player = get_tree().get_first_node_in_group("player")
+	_apply_level_scaling()
 	if shared_frames == null:
 		shared_frames = build_frames()
 	sprite.sprite_frames = shared_frames
 	sprite.play("run_down")
+
+func _apply_level_scaling():
+	var enemy_level := region_level
+	if scale_with_player and player:
+		enemy_level = maxi(region_level, int(player.get("level")))
+	var level_steps := maxi(enemy_level - 1, 0)
+	var post_50_multiplier := 1.0
+	if enemy_level > 50:
+		post_50_multiplier = 1.0 + 0.025 * float(enemy_level - 50)
+
+	hp = maxi(1, roundi(float(hp) * pow(1.05, level_steps) * post_50_multiplier * region_multiplier))
+	contact_damage = maxi(1, roundi(float(contact_damage) * pow(1.035, level_steps) * post_50_multiplier * region_multiplier))
+	speed = minf(speed * pow(1.01, level_steps), max_speed)
+	soul_reward = maxi(1, roundi(pow(1.03, level_steps) * region_multiplier))
 
 func build_frames() -> SpriteFrames:
 	var sf := SpriteFrames.new()
@@ -100,6 +120,7 @@ func take_damage(amount: int):
 func die():
 	dead = true
 	var soul = soul_scene.instantiate()
+	soul.amount = soul_reward
 	soul.global_position = global_position
 	get_parent().add_child.call_deferred(soul)
 	queue_free()

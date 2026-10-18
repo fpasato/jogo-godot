@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://oribe0mebmue"]
+
+[ext_resource type="Script" uid="uid://dvvj8g3qw64yi" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://dpjtgmkt76o6c" path="res://assets/textures/bg/bg.png" id="1_yqeox"]
+[ext_resource type="Script" uid="uid://mdw3fikcwhi1" path="res://scripts/botao_menu.gd" id="3_con2f"]
+
+[node name="menu" type="CanvasLayer" unique_id=2146952161]
+
+[node name="Menu" type="Control" parent="." unique_id=1298157672]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="FundoPreto" type="ColorRect" parent="Menu" unique_id=1979140141]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Fundo" type="TextureRect" parent="Menu" unique_id=985303126]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yqeox")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu" unique_id=1301063447]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 360
+theme_override_constants/margin_bottom = 80
+accessibility_region = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer" unique_id=96788387]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="BtnHistoria" type="Button" parent="Menu/MarginContainer/VBoxContainer" unique_id=799468375]
+layout_mode = 2
+text = "História"
+script = ExtResource("3_con2f")
+
+[node name="BtnArcade" type="Button" parent="Menu/MarginContainer/VBoxContainer" unique_id=1387123703]
+layout_mode = 2
+text = "Arcade"
+script = ExtResource("3_con2f")
+
+[node name="BtnConfig" type="Button" parent="Menu/MarginContainer/VBoxContainer" unique_id=89395953]
+layout_mode = 2
+text = "Configurações"
+script = ExtResource("3_con2f")
+
+[node name="BtnSair" type="Button" parent="Menu/MarginContainer/VBoxContainer" unique_id=484407620]
+layout_mode = 2
+text = "Sair"
+script = ExtResource("3_con2f")

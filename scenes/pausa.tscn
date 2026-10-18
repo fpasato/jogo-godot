@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dard6e5mjx17e"]
+
+[ext_resource type="Script" uid="uid://mdw3fikcwhi1" path="res://scripts/botao_menu.gd" id="1_3kuwy"]
+[ext_resource type="Script" uid="uid://cukm0gs231n4c" path="res://scripts/pausa.gd" id="1_qtdsr"]
+
+[node name="pausa" type="CanvasLayer" unique_id=389403988]
+script = ExtResource("1_qtdsr")
+
+[node name="Control" type="Control" parent="." unique_id=269462075]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1979140141]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15099221, 0.15771884, 0.1449745, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=616851847]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer" unique_id=744790840]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Titulo" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=386524520]
+layout_mode = 2
+text = "PAUSADO"
+horizontal_alignment = 1
+
+[node name="BtnContinuar" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=434617398]
+layout_mode = 2
+text = "Continuar"
+script = ExtResource("1_3kuwy")
+
+[node name="BtnMenu" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=1342614500]
+layout_mode = 2
+text = "Menu principal"
+script = ExtResource("1_3kuwy")
+
+[node name="BtnSairPausa" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=1369453156]
+layout_mode = 2
+text = "Sair"
+script = ExtResource("1_3kuwy")

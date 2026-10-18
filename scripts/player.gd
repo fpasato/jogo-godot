@@ -27,8 +27,9 @@ var audio_players: Array[AudioStreamPlayer] = []
 
 var hp := 100
 var souls := 0
+var souls_spent_on_levels := 0
 var level := 1
-var next_level_souls := 10
+var next_level_souls := 100
 var dead := false
 var can_explode := true
 var can_lightning := true
@@ -56,7 +57,7 @@ func cast_storm():
 		target = global_position + off.normalized() * storm_range
 
 	var s = storm_scene.instantiate()
-	s.bolt_count = 1 + storm_level            # nível 1 = 2 raios, nível 2 = 3...
+	s.bolt_count = 10 + storm_level            # nível 1 = 2 raios, nível 2 = 3...
 	s.radius = 170.0 + storm_level * 10.0     # opcional: área cresce com o nível
 	get_tree().current_scene.add_child(s)
 	s.global_position = target
@@ -164,7 +165,8 @@ func play_pickup_sound():
 func add_souls(amount: int):
 	souls += amount
 	souls_changed.emit(souls)
-	while souls >= next_level_souls:
+	while souls - souls_spent_on_levels >= next_level_souls:
+		souls_spent_on_levels += next_level_souls
 		level_up()
 		
 func _physics_process(_delta):
@@ -193,7 +195,7 @@ func _physics_process(_delta):
 
 func level_up():
 	level += 1
-	next_level_souls = int(next_level_souls * 1.8)
+	next_level_souls = ceili(100.0 * pow(float(level), 1.65))
 	explosion_radius += 25
 	explosion_damage += 5
 	explosion_cooldown = max(0.5, explosion_cooldown - 0.1)

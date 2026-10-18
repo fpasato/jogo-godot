@@ -4,6 +4,7 @@ var player: Node2D
 var attract_range := 150.0
 var speed := 400.0
 @export var lifetime := 10.0
+@export var amount := 1
 var soul_visual_scene := preload("res://scenes/SoulFx.tscn")
 var soul_visual: Node2D
 
@@ -24,7 +25,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		body.add_souls(1)
+		body.add_souls(amount)
 		body.play_pickup_sound()
 		soul_visual.play_collect_effect()
 		queue_free()

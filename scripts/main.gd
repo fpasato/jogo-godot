@@ -15,6 +15,8 @@ func _on_hp_changed(current, maximum):
 	hp_bar.value = current
 
 func _ready():
+	MusicaManager.tocar_arcade()
+	MusicaManager.volume = 0.15  
 	player.souls_changed.connect(_on_souls_changed)
 	timer.timeout.connect(_on_timer_timeout)
 	player.hp_changed.connect(_on_hp_changed)

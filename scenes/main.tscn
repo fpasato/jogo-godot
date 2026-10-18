@@ -4,15 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://766jsikflxl" path="res://scenes/Player.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dd8uwcgqciba8" path="res://scenes/enemy.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bveed7oj77ntw" path="res://scenes/floresta.tscn" id="4_forest"]
+[ext_resource type="PackedScene" uid="uid://dard6e5mjx17e" path="res://scenes/pausa.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=243873930]
 script = ExtResource("1_1bvp3")
 enemy_scene = ExtResource("3_h2yge")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=350731408]
-color = Color(0.4748093, 0.45225525, 0.5976514, 1)
-
-[node name="Floresta" parent="." unique_id=2080224121 instance=ExtResource("4_forest")]
 
 [node name="Player" parent="." unique_id=873536142 instance=ExtResource("2_h2yge")]
 
@@ -46,3 +44,8 @@ text = "Nível 1"
 [node name="Timer" type="Timer" parent="." unique_id=1178036772]
 wait_time = 0.5
 autostart = true
+
+[node name="Floresta" parent="." unique_id=1817826247 instance=ExtResource("4_forest")]
+position = Vector2(-1083, -2003)
+
+[node name="Pausa" parent="." unique_id=389403988 instance=ExtResource("5_tbgi4")]

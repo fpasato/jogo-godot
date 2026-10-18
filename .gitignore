@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+Soulstorm.exe
+Soulstorm.console.exe
+Soulstorm.wasm
+*.tmp
